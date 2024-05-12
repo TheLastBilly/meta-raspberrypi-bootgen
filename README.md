@@ -35,6 +35,14 @@ sudo locale-gen en_US.UTF-8
 # While not listed on the official documentation, you might still needed
 # to run the following command to avoid having locale issues with your
 # system.
+#
+# After running this command you'll be taken to a text based user interface
+# and will be asked which locales you'd wish to generate. Scroll down the
+# list using the up/down arrow keys and select "en_US.UTF-8 UTF-8" if it's
+# not selected already, then press enter. If asked which locale you'd like to
+# use as the default in your system, simply select the one your system already
+# had (you can find out which one that is by opening another terminal window
+# and typing echo $LANG) with the up/down arrow keys and hit enter.
 sudo dpkg-reconfigure locales
 ```
 
