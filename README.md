@@ -74,4 +74,20 @@ bitbake core-image-minimal
 This process can take a long time to complete (~45 minutes on a Ryzen 5 2400G and 16GB of RAM from an SSD) and might make your system sluggish as a lot of processes will be created to parallelize the compilation process as much as possible.
 
 ## Deploying
-TODO, pending final build
+Once the buld process is complete, you'll be left with a file called `core-image-minimal-raspberrypi4-64.wic.bz2`, located inside [build/tmp/deploy/images/raspberrypi4-64/](build/tmp/deploy/images/raspberrypi4-64/). This is a compressed file, so you'll need to decompress it before flashing it into your SD Card.
+
+```bash
+# source poky/oe-init-build-env should have
+# taken you to build/, in the case it didn't run
+# cd build/
+cd tmp/deploy/images/raspberrypi4-64/
+bzip2 -df core-image-minimal-raspberrypi4-64.wic.bz2
+```
+
+Now you should have a file named `core-image-minimal-raspberrypi4-64.wic` inside of [build/tmp/deploy/images/raspberrypi4-64/](build/tmp/deploy/images/raspberrypi4-64/). You can flash it to your SD Card by using the `dd` command.
+
+**CAUTION: Be extremely careful with the following command, as using the wrong argument on `<path to your SD Card>`, could potentially break your system permanently.**
+```bash
+# Replace <path to your SD Card> with the path your SD Card in your filesystem
+dd if=core-image-minimal-raspberrypi4-64.wic of=<path to your SD Card> status=progress
+```
