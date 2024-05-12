@@ -89,5 +89,5 @@ Now you should have a file named `core-image-minimal-raspberrypi4-64.wic` inside
 **CAUTION: Be extremely careful with the following command, as using the wrong argument on `<path to your SD Card>`, could potentially break your system permanently.**
 ```bash
 # Replace <path to your SD Card> with the path your SD Card in your filesystem
-dd if=core-image-minimal-raspberrypi4-64.wic of=<path to your SD Card> status=progress
+dd if=core-image-minimal-raspberrypi4-64.wic of=<path to your SD Card> bs=1M status=progress
 ```
